@@ -6,7 +6,7 @@
 #include <sstream>
 #include <bits/stdc++.h> 
 using namespace std;
-string PreProcessamento(string NomeArquivo);
+string PreProcessamento(string NomeArquivo,bool DoisArquivos);
 string TransformaMaiusculo(string linha);
 string RetiraComentarios(string linha);
 string RetiraEspacos(string linha);

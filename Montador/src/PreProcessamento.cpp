@@ -4,7 +4,7 @@
 using namespace std;
 map <string,int> MapaEQU;
 
-string PreProcessamento(string NomeArquivo){
+string PreProcessamento(string NomeArquivo,bool DoisArquivos){
     string NomeArquivoPreProcessado;
     ifstream Arquivo;
     Arquivo.open(NomeArquivo);
@@ -26,12 +26,28 @@ string PreProcessamento(string NomeArquivo){
         return "";
     }
     int ContadorLinhas = 0;
+    //Ultima linha do arquivo
+    string LinhaFinal;
     while(getline(Arquivo, linha)){
-        ContadorLinhas++;
+        
         linha = TransformaMaiusculo(linha);
         linha = RetiraComentarios(linha);
         linha = RetiraEspacos(linha);
-        
+        //Checa se o begin esta na primeira linha do codigo
+        if(ContadorLinhas == 0 && DoisArquivos == true){
+                istringstream buf(linha),aux(linha);
+                vector<string> v;
+                //Separa todas as palavras da linha e coloca elas em um vector
+                for(string palavra; buf >> palavra; ){
+                    v.push_back(palavra);
+                    // imprime todas as palavras da linha cout << palavra << endl;
+                }
+            if (v[1] != "BEGIN"){
+                cout << "Falta a diretiva BEGIN no comeco do modulo:" << NomeArquivo << endl;
+            }
+
+        }
+        ContadorLinhas++;
         // Verifica se há um rotulo com \n no código
         if (linha.back() == ':'){
             istringstream iss(linha);
@@ -62,9 +78,16 @@ string PreProcessamento(string NomeArquivo){
                 FlagIF = false;
             linha = "";
         }
-        if(!linha.empty())
+        if(!linha.empty()){
             ArquivoPreProcessado << linha << endl;
+            LinhaFinal = linha;
+        }
     
+    }
+    if(DoisArquivos == true){
+        if (LinhaFinal != "END"){
+            cout << "Falta a diretiva END no final do modulo:" << NomeArquivo << endl;
+        }
     }
     ArquivoPreProcessado.close();
     Arquivo.close();
