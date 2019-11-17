@@ -500,7 +500,7 @@ string MontadorUmaPassada(string NomeArquivo,bool DoisArquivos){
     
     }
     
-    if ( DoisArquivos == true){
+    
         ArquivoObjeto << "H: " << NomeArquivo.substr(0, NomeArquivo.size()-4) << endl;
         ArquivoObjeto << "H: " << VetorObjeto.size() << endl;
         ArquivoObjeto << "H: ";
@@ -509,23 +509,25 @@ string MontadorUmaPassada(string NomeArquivo,bool DoisArquivos){
 
         }
         ArquivoObjeto << endl;
-        for(auto& Simbolo : TabelaUso){
-            ArquivoObjeto << "U: " ;
-            //Pega todos os lugares em que o simbolo externo foi utilizado
-            ArquivoObjeto << Simbolo.first << " ";
-            for(int i = 0; i < Simbolo.second.LugaresUsados.size(); i++)
-                ArquivoObjeto << Simbolo.second.LugaresUsados[i] << " "; 
+        if ( DoisArquivos == true){
+            for(auto& Simbolo : TabelaUso){
+                ArquivoObjeto << "U: " ;
+                //Pega todos os lugares em que o simbolo externo foi utilizado
+                ArquivoObjeto << Simbolo.first << " ";
+                for(int i = 0; i < Simbolo.second.LugaresUsados.size(); i++)
+                    ArquivoObjeto << Simbolo.second.LugaresUsados[i] << " "; 
 
 
-            ArquivoObjeto << endl;
-        }
-        for(auto& Simbolo : TabelaDefinicoes){
-            ArquivoObjeto << "D: ";
-            //Pega todos as definicoes dos labels public
-            ArquivoObjeto << Simbolo.first << " " << Simbolo.second.Valor << endl;
+                ArquivoObjeto << endl;
+            }
+            for(auto& Simbolo : TabelaDefinicoes){
+                ArquivoObjeto << "D: ";
+                //Pega todos as definicoes dos labels public
+                ArquivoObjeto << Simbolo.first << " " << Simbolo.second.Valor << endl;
+            }
         }
         ArquivoObjeto << "T: ";
-    }
+    
     for (int i = 0 ; i < VetorObjeto.size() ; i++){
         //cout << VetorObjeto[i] << " ";
         ArquivoObjeto << VetorObjeto[i] << " ";
