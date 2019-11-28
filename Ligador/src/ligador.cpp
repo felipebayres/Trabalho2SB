@@ -24,7 +24,8 @@ int main (int argc, char** argv) {
     // Nome do primeiro arquivo objeto
     NomeArquivoObjetoUm = argv[1];
     string NomeArquivoObjetoFinal = NomeArquivoObjetoUm.substr(0, NomeArquivoObjetoUm.size()-4) + ".fv";
-    ofstream ArquivoFinal(NomeArquivoObjetoUm.substr(0, NomeArquivoObjetoUm.size()-4) + ".fv");
+    string path = "../../Simulador/src/" + NomeArquivoObjetoFinal;
+    ofstream ArquivoFinal(path);
     
     // Caso tenham dois arquivos de entrada
     if (argc == 3){
@@ -246,7 +247,7 @@ int main (int argc, char** argv) {
     
     ArquivoObjetoUm.close();
     ArquivoFinal.close();
-    cout << "Gerado arquivo objeto final: " << NomeArquivoObjetoFinal << endl;
+    cout << "Gerado arquivo objeto final: " << NomeArquivoObjetoFinal << " no diretório do Simulador" << endl;
     
 
     return 0;
