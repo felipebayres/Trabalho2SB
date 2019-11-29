@@ -12,8 +12,7 @@ Vítor Ribas Bandeira - 16/0148421
       3.5 Digite ./ligador -NomeArquivo.obj- -NomeArquivo2.obj- e aperte enter		
 
 -Atenção- : 
-  Optamos por deixar o simulador em uma pasta diferente da do compilador para ficar mais organizado.
-  Então se quiser usar o arquivo criado pelo ligador , é preciso colocar o caminho dele ao chamar o simulador no passo 3 abaixo(ex: ../../Ligador/src/Fibonacci):
+  Optamos por deixar o simulador e o ligador em uma pasta diferente da do montador para ficar mais organizado.
   
   Para compilar o simulador do trabalho:
       1.Entre na pasta \Simulador\src pelo terminal
