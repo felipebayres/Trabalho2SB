@@ -19,10 +19,7 @@ string MontadorUmaPassada(string NomeArquivo,bool DoisArquivos){
     //Verifica se existe a secao text e coloca ela na primeira posicao e coloca o nome do modulo na tabela de simbolos
     string NomeModulo = PadronizaSection(NomeArquivo,DoisArquivos);
     NomeModulo = NomeModulo.substr(0,NomeModulo.size()-1);
-<<<<<<< HEAD
-=======
     //cout << NomeModulo;
->>>>>>> 3e93c174640d5348d9fd7ae5715fc6800e1f7037
     if( DoisArquivos){
         TabelaDeSimbolos[NomeModulo].definido = true;
         TabelaDeSimbolos[NomeModulo].Valor =  0;
