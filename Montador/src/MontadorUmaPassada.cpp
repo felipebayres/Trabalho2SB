@@ -19,6 +19,10 @@ string MontadorUmaPassada(string NomeArquivo,bool DoisArquivos){
     //Verifica se existe a secao text e coloca ela na primeira posicao e coloca o nome do modulo na tabela de simbolos
     string NomeModulo = PadronizaSection(NomeArquivo,DoisArquivos);
     NomeModulo = NomeModulo.substr(0,NomeModulo.size()-1);
+<<<<<<< HEAD
+=======
+    //cout << NomeModulo;
+>>>>>>> 3e93c174640d5348d9fd7ae5715fc6800e1f7037
     if( DoisArquivos){
         TabelaDeSimbolos[NomeModulo].definido = true;
         TabelaDeSimbolos[NomeModulo].Valor =  0;
@@ -28,7 +32,8 @@ string MontadorUmaPassada(string NomeArquivo,bool DoisArquivos){
     
     string NomeArquivoObjeto;
     NomeArquivoObjeto = NomeArquivo.substr(0, NomeArquivo.size()-4) + ".obj";
-    ofstream ArquivoObjeto(NomeArquivoObjeto);
+    string path = "../../Ligador/src/" + NomeArquivoObjeto;
+    ofstream ArquivoObjeto(path);
 
     vector<string> VetorObjeto;
 
@@ -534,6 +539,7 @@ string MontadorUmaPassada(string NomeArquivo,bool DoisArquivos){
     }
     ArquivoObjeto.close();
     Arquivo.close();
+    cout << "Criado arquivo objeto de módulo: " << NomeArquivoObjeto << " no diretório do Ligador" << endl ;
     return NomeArquivoObjeto;
 }
 
