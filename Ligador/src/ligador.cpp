@@ -23,7 +23,8 @@ int main (int argc, char** argv) {
     }  
     // Nome do primeiro arquivo objeto
     NomeArquivoObjetoUm = argv[1];
-    ofstream ArquivoFinal(NomeArquivoObjetoUm + "1");
+    string NomeArquivoFinal = NomeArquivoObjetoUm.substr(0, NomeArquivoObjetoUm.size()-4);
+    ofstream ArquivoFinal(NomeArquivoFinal);
     
     // Caso tenham dois arquivos de entrada
     if (argc == 3){
@@ -238,7 +239,7 @@ int main (int argc, char** argv) {
         }
         VetorModuloUm.insert( VetorModuloUm.end(), VetorModuloDois.begin(), VetorModuloDois.end() );
         for (int i = 0 ; i < VetorModuloUm.size() ; i++)
-            cout << VetorModuloUm[i] << " ";
+            ArquivoFinal << VetorModuloUm[i] << " ";
     }
     
     ArquivoObjetoUm.close();

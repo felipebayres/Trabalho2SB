@@ -19,7 +19,6 @@ string MontadorUmaPassada(string NomeArquivo,bool DoisArquivos){
     //Verifica se existe a secao text e coloca ela na primeira posicao e coloca o nome do modulo na tabela de simbolos
     string NomeModulo = PadronizaSection(NomeArquivo,DoisArquivos);
     NomeModulo = NomeModulo.substr(0,NomeModulo.size()-1);
-    cout << NomeModulo;
     if( DoisArquivos){
         TabelaDeSimbolos[NomeModulo].definido = true;
         TabelaDeSimbolos[NomeModulo].Valor =  0;
